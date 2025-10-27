@@ -175,14 +175,14 @@
       margin: 40px 0;
     }
 
-    .allure-cards {
+    .right-cards {
       display: flex;
       flex-direction: column; 
       gap: 20px;
       margin-top: 16px;
     }
 
-    .allure-card {
+    .right-card {
       background: rgba(30, 41, 59, 0.5 ); 
       border-radius: 12px;
       padding: 20px;
@@ -191,30 +191,30 @@
       transition: all 0.3s ease;
     }
 
-    .allure-card:hover {
+    .right-card:hover {
       transform: translateY(-5px);
       border-color: rgba(125, 211, 252, 0.3);
     }
 
-    .allure-card img {
+    .right-card img {
       width: 48px;
       height: 48px;
       margin-bottom: 8px;
     }
 
-    .allure-card h3 {
+    .right-card h3 {
       margin: 0 0 4px;
       color: #e6eef6;
       font-size: 1.1rem;
     }
 
-    .allure-card p {
+    .right-card p {
       color: var(--muted);
       font-size: 0.9rem;
       margin: 0 0 16px;
     }
 
-    .allure-button {
+    .right-button {
       display: inline-block;
       background-color: var(--accent);
       color: var(--bg);
@@ -225,7 +225,7 @@
       transition: background-color 0.3s ease;
     }
 
-    .allure-button:hover {
+    .right-button:hover {
       background-color: #a7e4fd;
     }
   </style>
@@ -323,36 +323,38 @@
     <aside>
       <section class="card">
         <h2>Allure Reports</h2>
-        <div class="allure-cards">
+        <div class="right-cards">
 
-          <div class="allure-card">
+          <div class="right-card">
             <img src="https://dieneslab.github.io/icons/playwright.svg" alt="Playwright Icon" />
             <h3>Playwright</h3>
-            <p>Relatórios de testes de automação.</p>
-            <a href="https://dieneslab.github.io/automacao_playwright" target="_blank" class="allure-button">
-              Ver Relatório
+            <p>Automation test reports.</p>
+            <a href="https://dieneslab.github.io/automacao_playwright" target="_blank" class="right-button">
+              See Report
             </a>
           </div>
         
-          <div class="allure-card">
+          <div class="right-card">
             <img src="https://dieneslab.github.io/icons/cypress.svg" alt="Cypress Icon" />
             <h3>Cypress</h3>
-            <p>Relatórios de testes de automação.</p>
-            <a href="https://dieneslab.github.io/automacao_cypress_allure" target="_blank" class="allure-button">
-              Ver Relatório
+            <p>Automation test reports.</p>
+            <a href="https://dieneslab.github.io/automacao_cypress_allure" target="_blank" class="right-button">
+              See Report
             </a>
           </div>
         </div>
       </section>
 
       <section class="card">
-        <h2>Quick Links</h2>
-        <ul>
-          <li><a href="https://github.com/dieneslab" target="_blank">Profile</a></li>
-          <li><a href="https://github.com/dieneslab/automacao_cypress_allure" target="_blank">automacao_cypress_allure</a></li>
-          <li><a href="https://github.com/dieneslab/automacao_playwright" target="_blank">automacao_playwright</a></li>
-          <li><a href="https://github.com/dieneslab/automacao_robotframework" target="_blank">automacao_robotframework</a></li>
-        </ul>
+        <h2>Portfolio</h2>
+          <div class="right-card">
+            <img src="https://dieneslab.github.io/icons/github.svg" alt="Github Icon" />
+            <h3>GitHub</h3>
+            <a href="https://github.com/dieneslab" target="_blank" class="right-button">
+              See Repositories
+            </a>
+          </div>
+        </div>
       </section>
     </aside>
   </main>
