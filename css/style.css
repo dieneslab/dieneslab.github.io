@@ -596,32 +596,97 @@ main > section:first-child {
 }
 
 .social-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
     margin-top: 20px;
 }
 
 .social-links a {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    gap: 10px;
     background: rgba(125, 211, 252, 0.1);
-    padding: 10px 15px;
+    padding: 20px 15px;
     border-radius: var(--radius-sm);
     font-weight: 600;
     color: var(--color-accent);
-    transition: background 0.3s ease;
+    transition: all 0.3s ease;
+    text-align: center;
+    min-height: 100px;
 }
 
 .social-links a:hover {
     background: rgba(125, 211, 252, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .social-links img {
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
     filter: none;
+    transition: transform 0.3s ease;
+}
+
+.social-links a:hover img {
+    transform: scale(1.1);
+}
+
+.contact-intro {
+    margin-bottom: 25px;
+    color: var(--color-secondary-text);
+    line-height: 1.6;
+}
+
+.contact-highlight {
+    background: rgba(125, 211, 252, 0.05);
+    border-left: 4px solid var(--color-accent);
+    padding: 20px;
+    border-radius: var(--radius-sm);
+    margin-top: 30px;
+}
+
+.contact-highlight h3 {
+    margin-top: 0;
+    color: var(--color-primary-text);
+    font-size: 1.1rem;
+}
+
+.contact-highlight p {
+    margin-bottom: 10px;
+}
+
+.response-time {
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    font-style: italic;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .social-links {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .social-links a {
+        padding: 15px 10px;
+        min-height: 90px;
+    }
+    
+    .social-links img {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .social-links {
+        grid-template-columns: 1fr;
+    }
 }
 
 .availability-list {
