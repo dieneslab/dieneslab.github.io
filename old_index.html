@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dienes Stein — Portfólio</title>
+  <meta name="description" content="Dienes Stein — QA Automation Engineer | Cypress | Robot Framework | Playwright | Cucumber" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1724;
+      --card: #121b2f;
+      --muted: #a3afc1;
+      --accent: #7dd3fc;
+      --radius: 18px;
+      --shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+      --maxw: 1100px;
+      color-scheme: dark;
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(180deg, #0a1223 0%, #0f1724 100%);
+      color: #e6eef6;
+      line-height: 1.6;
+    }
+
+    header.hero {
+      text-align: center;
+      padding: 60px 20px 20px;
+      background: linear-gradient(180deg, rgba(125,211,252,0.1) 0%, rgba(125,211,252,0) 80%);
+    }
+
+    header.hero img.hero-banner {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+      box-shadow: var(--shadow);
+    }
+
+    header.hero h1 {
+      font-size: 2.3rem;
+      margin: 16px 0 8px;
+    }
+
+    header.hero p.lead {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    main {
+      max-width: var(--maxw);
+      margin: 40px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 40px;
+    }
+
+    @media (max-width: 900px) {
+      main { grid-template-columns: 1fr; }
+    }
+
+    section.card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      box-shadow: var(--shadow);
+      margin-bottom: 28px;
+    }
+
+    h2 {
+      color: var(--accent);
+      margin-top: 0;
+      font-size: 1.4rem;
+    }
+
+    .tech-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .tech-icons img {
+      width: 42px;
+      height: 42px;
+      transition: transform 0.3s ease;
+    }
+
+    .tech-icons img:hover {
+      transform: scale(1.15);
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+      justify-content: center;justify-content: center;
+    }
+
+    .badge {
+      background: rgba(125,211,252,0.1);
+      color: var(--accent);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .stats img {
+      border-radius: var(--radius);
+      margin-top: 10px;
+    }
+
+    table.extensions {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+    }
+
+    table.extensions th, table.extensions td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    table.extensions th { color: var(--accent); font-weight: 700; }
+
+    .connect {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .connect a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #e6eef6;
+      background: rgba(255,255,255,0.05);
+      padding: 8px 12px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .connect a:hover {
+      background: rgba(125,211,252,0.1);
+      color: var(--accent);
+    }
+
+    .connect img { width: 26px; height: 26px; }
+
+    aside {
+      position: sticky;
+      top: 30px;
+      align-self: start;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin: 40px 0;
+    }
+
+    .right-cards {
+      display: flex;
+      flex-direction: column; 
+      gap: 20px;
+      margin-top: 16px;
+    }
+
+    .right-card {
+      background: rgba(30, 41, 59, 0.5 ); 
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      border: 1px solid rgba(125, 211, 252, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .right-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(125, 211, 252, 0.3);
+    }
+
+    .right-card img {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 8px;
+    }
+
+    .right-card h3 {
+      margin: 0 0 4px;
+      color: #e6eef6;
+      font-size: 1.1rem;
+    }
+
+    .right-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin: 0 0 16px;
+    }
+
+    .right-button {
+      display: inline-block;
+      background-color: var(--accent);
+      color: var(--bg);
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .right-button:hover {
+      background-color: #a7e4fd;
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <img class="hero-banner" src="https://dieneslab.github.io/images/profile.png" alt="Dienes Stein" />
+    <h1>Dienes Stein</h1>
+    <p class="lead">QA Automation Engineer passionate about <strong>software quality</strong>, <strong>test frameworks</strong> and <strong>continuous improvement</strong>. Turning coffee into automation with Cypress, Playwright, Robot Framework & more!</p>
+    <div class="badges">
+      <span class="badge">Cypress</span>
+      <span class="badge">Playwright</span>
+      <span class="badge">Robot Framework</span>
+      <span class="badge">Postman</span>
+      <span class="badge">Insomnia</span>
+    </div>
+  </header>
+
+  <main>
+    <div>
+      <section class="card">
+        <h2>Tech Stack</h2>
+        <div class="tech-icons">
+          <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
+            <img src="https://dieneslab.github.io/icons/javascript.svg" alt="JavaScript" />
+          </a> 
+          <a href="https://www.typescriptlang.org" target="_blank"> 
+            <img src="https://dieneslab.github.io/icons/typescript.svg" alt="TypeScript" />
+          </a>
+          <a href="https://nodejs.org" target="_blank">
+            <img src="https://dieneslab.github.io/icons/node.svg" alt="Node.js" />
+          </a>
+          <a href="https://www.cypress.io" target="_blank">
+            <img src="https://dieneslab.github.io/icons/cypress.svg" alt="Cypress" />
+          </a>
+          <a href="https://playwright.dev" target="_blank">
+            <img src="https://dieneslab.github.io/icons/playwright.svg" alt="Playwright" />
+          </a>
+          <a href="https://robotframework.org" target="_blank">
+            <img src="https://dieneslab.github.io/icons/robotframework.svg" alt="Robot Framework" />
+          </a> 
+          <a href="https://www.postman.com" target="_blank">
+            <img src="https://dieneslab.github.io/icons/postman.svg" alt="Postman" />
+          </a>
+          <a href="https://insomnia.rest" target="_blank">
+            <img src="https://dieneslab.github.io/icons/insomnia.svg" alt="Insomnia" />
+          </a>
+          <a href="https://cucumber.io" target="_blank">
+            <img src="https://dieneslab.github.io/icons/cucumber.svg" alt="Cucumber" />
+          </a>
+          <a href="https://code.visualstudio.com" target="_blank">
+            <img src="https://dieneslab.github.io/icons/vscode.svg" alt="VS Code" />
+          </a>
+        </div>
+        <div class="stats">
+          <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=dieneslab&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" width="48%" />
+          <img src="https://github-readme-stats.vercel.app/api?username=dieneslab&show_icons=true&theme=tokyonight&hide_border=true" alt="GitHub Stats" width="48%" />
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Favorite VS Code Extensions</h2>
+        <table class="extensions">
+          <thead>
+            <tr><th>Extension</th><th>Description</th><th>Publisher</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Cucumber (Gherkin) Full Support</td><td>Language support, formatting and autocomplete for Gherkin</td><td>Alexander Krechik</td></tr>
+            <tr><td>Dracula Theme Official</td><td>Dark theme for VS Code</td><td>Dracula Theme</td></tr>
+            <tr><td>GitHub Actions</td><td>Manage and run GitHub Actions workflows</td><td>GitHub</td></tr>
+            <tr><td>GitHub Copilot</td><td>Your AI pair programmer</td><td>GitHub</td></tr>
+            <tr><td>GitHub Copilot Chat</td><td>Interactive AI chat assistant powered by GitHub Copilot</td><td>GitHub</td></tr>
+            <tr><td>JavaScript and TypeScript Nightly</td><td>Enable TypeScript@next for better JS/TS support</td><td>Microsoft</td></tr>
+            <tr><td>Material Icon Theme</td><td>Material Design icons for Visual Studio Code</td><td>Philipp Kief</td></tr>
+            <tr><td>One Dark Pro</td><td>Atom's iconic dark theme for Visual Studio Code</td><td>binaryify</td></tr>
+            <tr><td>Playwright Test for VSCode</td><td>Integrated Playwright test runner and debugging support</td><td>Microsoft</td></tr>
+            <tr><td>Prettier – Code Formatter</td><td>Opinionated code formatter for clean and consistent style</td><td>Prettier</td></tr>
+            <tr><td>Rainbow CSV</td><td>Syntax highlighting and SQL-like queries for CSV and TSV files</td><td>mechatroner</td></tr>
+            <tr><td>Robot Framework Language Server</td><td>Full language support for Robot Framework</td><td>Robocorp</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card">
+        <h2>Let's Connect</h2>
+        <div class="connect">
+          <a href="https://linkedin.com/in/dienes" target="_blank"><img src="https://dieneslab.github.io/icons/linkedin.svg" alt="LinkedIn" />LinkedIn</a>
+          <a href="https://x.com/dienes" target="_blank"><img src="https://dieneslab.github.io/icons/xcom.svg" alt="X" />x.com</a>
+          <a href="https://instagram.com/dienes_stein" target="_blank"><img src="https://dieneslab.github.io/icons/instagram.svg" alt="Instagram" />Instagram</a>
+          <a href="https://www.youtube.com/dienes_stein" target="_blank"><img src="https://dieneslab.github.io/icons/youtube.svg" alt="YouTube" />YouTube</a>
+        </div>
+      </section>
+    </div>
+
+    <aside>
+      <section class="card">
+        <h2>Allure Reports</h2>
+        <div class="right-cards">
+
+          <div class="right-card">
+            <img src="https://dieneslab.github.io/icons/playwright.svg" alt="Playwright Icon" />
+            <h3>Playwright</h3>
+            <p>Automation test reports.</p>
+            <a href="https://dieneslab.github.io/automacao_playwright" target="_blank" class="right-button">
+              See Report
+            </a>
+          </div>
+        
+          <div class="right-card">
+            <img src="https://dieneslab.github.io/icons/cypress.svg" alt="Cypress Icon" />
+            <h3>Cypress</h3>
+            <p>Automation test reports.</p>
+            <a href="https://dieneslab.github.io/automacao_cypress_allure" target="_blank" class="right-button">
+              See Report
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Portfolio</h2>
+          <div class="right-card">
+            <img src="https://dieneslab.github.io/icons/github.svg" alt="Github Icon" />
+            <h3>GitHub</h3>
+            <a href="https://github.com/dieneslab" target="_blank" class="right-button">
+              See Repositories
+            </a>
+          </div>
+        </div>
+      </section>
+    </aside>
+  </main>
+
+  <footer>
+    © 2025 Dienes Stein — Made with ❤️ and GitHub Pages.
+  </footer>
+</body>
+</html>
