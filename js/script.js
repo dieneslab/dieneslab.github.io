@@ -152,3 +152,50 @@ styleSheet.textContent = `
 `;
 document.head.appendChild(styleSheet);
 
+
+document.addEventListener('DOMContentLoaded', function() {
+    const roles = [
+        "Software Quality Assurance Analyst",
+        "QA Automation Engineer", 
+        "Test Automation Specialist"
+    ];
+    
+    const typedElement = document.getElementById('typed-role');
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 100;
+    
+    function type() {
+        const currentRole = roles[roleIndex];
+        
+        if (isDeleting) {
+            // Apagando
+            typedElement.textContent = currentRole.substring(0, charIndex - 1);
+            charIndex--;
+            typingSpeed = 50; // Mais rápido ao apagar
+        } else {
+            // Digitando
+            typedElement.textContent = currentRole.substring(0, charIndex + 1);
+            charIndex++;
+            typingSpeed = 100; // Velocidade normal ao digitar
+        }
+        
+        // Verifica se terminou de digitar a palavra atual
+        if (!isDeleting && charIndex === currentRole.length) {
+            typingSpeed = 1500; // Pausa no final (1.5 segundos)
+            isDeleting = true;
+        } 
+        // Verifica se terminou de apagar
+        else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length; // Próximo role (volta ao primeiro no final)
+            typingSpeed = 500; // Pausa antes de começar o próximo (0.5 segundos)
+        }
+        
+        setTimeout(type, typingSpeed);
+    }
+    
+    // Inicia a animação após um pequeno delay
+    setTimeout(type, 1000);
+});

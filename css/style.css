@@ -231,7 +231,7 @@ main > section:first-child {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 60px;
+    gap: 200px;
     padding: 60px 40px; /* ADD padding lateral */
     margin-bottom: 40px;
     border-bottom: 1px solid rgba(125, 211, 252, 0.1);
@@ -291,6 +291,30 @@ main > section:first-child {
     object-fit: cover;
     border: 5px solid var(--color-accent);
     box-shadow: var(--shadow-card);
+}
+
+.hero-role {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    margin-bottom: 20px;
+    min-height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: 'Inter', sans-serif;
+}
+
+.cursor {
+    animation: blink 1s infinite;
+    color: var(--color-accent);
+    font-weight: bold;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
 }
 
 @media (max-width: 992px) {
