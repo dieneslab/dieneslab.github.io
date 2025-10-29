@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentação de APIs: A Base para Testes de Qualidade Precisos — Dienes Stein</title>
+    <meta name="description" content="Como uma documentação de API bem estruturada impacta positivamente na precisão dos testes e relatórios de qualidade.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        .article-header {
+            text-align: center;
+            padding: 40px 0 20px;
+            border-bottom: 1px solid rgba(125, 211, 252, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            color: var(--color-muted);
+            font-size: 1rem;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--radius-sm);
+            margin: 20px 0;
+            display: block;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .article-content h2 {
+            margin-top: 40px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid rgba(125, 211, 252, 0.2);
+            padding-bottom: 8px;
+        }
+
+        .article-content ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+            list-style-type: disc;
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid var(--color-accent);
+            padding-left: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            background-color: rgba(125, 211, 252, 0.05);
+            padding: 15px 20px;
+            border-radius: var(--radius-sm);
+        }
+        
+        .api-image-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .api-image-container img {
+            max-width: 80%;
+            border: 1px solid rgba(125, 211, 252, 0.3);
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .image-caption {
+            font-size: 0.9rem;
+            color: var(--color-muted);
+            margin-top: 8px;
+            font-style: italic;
+        }
+        
+        .project-demo {
+            background: rgba(125, 211, 252, 0.05);
+            border-radius: var(--radius-md);
+            padding: 30px;
+            margin: 40px 0;
+            border: 1px solid rgba(125, 211, 252, 0.1);
+        }
+        
+        .project-demo h3 {
+            color: var(--color-accent);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .demo-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 25px;
+        }
+        
+        .demo-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--color-accent);
+            color: var(--color-bg);
+            text-decoration: none;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+        
+        .demo-links a:hover {
+            transform: translateY(-2px);
+            background: #0ea5e9;
+        }
+        
+        .linkedin-cta {
+            text-align: center;
+            margin-top: 50px;
+            padding: 25px;
+            background: linear-gradient(135deg, rgba(125, 211, 252, 0.1), rgba(56, 189, 248, 0.1));
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(125, 211, 252, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">Dienes Stein</div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="../sobre.html" class="nav-link">Sobre Mim</a></li>
+                    <li><a href="../publicacoes.html" class="nav-link active">Publicações</a></li>
+                    <li><a href="../contato.html" class="nav-link">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="card">
+            <header class="article-header">
+                <h1>Documentação de APIs: A Base para Testes de Qualidade Precisos</h1>
+                <p class="article-meta">📅 28 de Outubro de 2025 | ⏱️ 6 min de leitura | 🏷️ APIs, Qualidade, Documentação</p>
+            </header>
+
+            <div class="article-content">
+                <p>
+                    Na área de Qualidade de Software, frequentemente nos concentramos em ferramentas de automação, frameworks de teste e metodologias ágeis. No entanto, há um elemento fundamental que muitas vezes é negligenciado, mas que tem impacto direto na precisão dos nossos testes e relatórios: a <strong>documentação de APIs</strong>.
+                </p>
+
+                <div class="api-image-container">
+                    <img src="../images/hospital-api-doc.png" alt="Documentação da API Hospital Management">
+                    <p class="image-caption">Documentação Swagger da Hospital Management API que desenvolvi</p>
+                </div>
+
+                <h2>Por Que a Documentação é Crucial para a Qualidade?</h2>
+                <p>
+                    Durante o desenvolvimento da minha <strong>Hospital Management API</strong>, percebi como uma documentação bem elaborada funciona como um contrato entre desenvolvedores e testadores. Ela define claramente os comportamentos esperados, os formatos de requisição e resposta, os códigos de status e os possíveis erros. Sem este "contrato", os testes se baseiam em suposições, o que compromete sua precisão e confiabilidade.
+                </p>
+                
+                <ul>
+                    <li><strong>Especificidade:</strong> Documentações como Swagger/OpenAPI fornecem especificações precisas que podem ser usadas para gerar testes automatizados.</li>
+                    <li><strong>Consistência:</strong> Garante que todos os envolvidos no projeto tenham a mesma compreensão sobre o funcionamento da API.</li>
+                    <li><strong>Validação:</strong> Permite validar se as implementações correspondem às especificações documentadas.</li>
+                </ul>
+
+                <blockquote>
+                    "Na minha experiência com a Hospital Management API, a documentação não foi apenas uma etapa do processo - foi a base que permitiu criar testes confiáveis e métricas precisas desde o primeiro dia."
+                </blockquote>
+
+                <h2>Documentação como Base para Relatórios Precisos</h2>
+                <p>
+                    Quando temos uma documentação clara e atualizada, podemos criar testes que realmente medem o que importa. Na prática com minha API hospitalar, isso se refletiu diretamente na qualidade dos relatórios e métricas:
+                </p>
+
+                <ul>
+                    <li><strong>Cobertura Real:</strong> Sabia exatamente quais endpoints e cenários precisavam ser testados.</li>
+                    <li><strong>Métricas Confiáveis:</strong> Os números de sucesso/falha refletiam com precisão o estado da aplicação.</li>
+                    <li><strong>Rastreabilidade:</strong> Podia correlacionar falhas nos testes com especificações na documentação.</li>
+                    <li><strong>Automação Eficiente:</strong> Ferramentas geravam casos de teste diretamente da documentação.</li>
+                </ul>
+
+                <div class="project-demo">
+                    <h3>🚀 Conheça o Projeto Hospital Management API</h3>
+                    <p>Desenvolvi esta API completa de gestão hospitalar para demonstrar na prática como uma boa documentação impacta na qualidade dos testes. O projeto inclui:</p>
+                    <ul>
+                        <li>Agendamento e gestão de consultas médicas</li>
+                        <li>Sistema de autenticação e autorização</li>
+                        <li>Estatísticas em tempo real</li>
+                        <li>Documentação completa com Swagger</li>
+                        <li>Testes automatizados baseados na documentação</li>
+                    </ul>
+                    
+                    <div class="demo-links">
+                        <a href="https://github.com/dieneslab/hospital-api" target="_blank">
+                            📂 GitHub
+                        </a>
+                        <a href="https://hospital-api.up.railway.app/api-docs" target="_blank">
+                            📖 Swagger Docs
+                        </a>
+                        <a href="https://hospital-api.up.railway.com" target="_blank">
+                            🌐 Live Demo
+                        </a>
+                        <a href="https://railway.app" target="_blank">
+                            🚄 Railway
+                        </a>
+                    </div>
+                    
+                    <p style="text-align: center; margin-top: 20px; font-style: italic;">
+                        Fique à vontade para explorar, testar os endpoints e ver na prática como a documentação facilita os testes!
+                    </p>
+                </div>
+
+                <h2>Conclusão</h2>
+                <p>
+                    Investir tempo na criação e manutenção de uma documentação de API robusta não é apenas uma boa prática de desenvolvimento - é uma estratégia fundamental para garantir a qualidade do software. Na minha experiência com a Hospital Management API, essa base documental foi essencial para testes precisos, relatórios confiáveis e métricas que realmente refletiam o estado da aplicação.
+                </p>
+                <p>
+                    No final, a qualidade dos nossos testes está diretamente relacionada à qualidade da nossa documentação. Antes de buscar ferramentas mais avançadas de automação, certifique-se de que sua base documental está sólida e atualizada.
+                </p>
+
+                <div class="linkedin-cta">
+                    <h3>💼 Leve esse conteúdo para o LinkedIn!</h3>
+                    <p>Se este conteúdo fez sentido para você, que tal compartilhar essas ideias com sua rede profissional?</p>
+                    <p><strong>"Documentação de APIs não é burocracia - é a base para testes de qualidade confiáveis. No meu último projeto, essa abordagem fez toda a diferença nos resultados."</strong></p>
+                    <div class="demo-links">
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://dieneslab.github.io/publicacoes/documentacao-apis.html&title=Documentação de APIs: A Base para Testes de Qualidade Precisos" target="_blank">
+                            🔗 Compartilhar no LinkedIn
+                        </a>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="../publicacoes.html" class="btn btn-secondary">← Voltar para Publicações</a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Dienes Stein — Feito com ❤️ e o poder da Qualidade de Software.</p>
+        </div>
+    </footer>
+    <script src="../js/script.js"></script>
+</body>
+</html>
