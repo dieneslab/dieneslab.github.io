@@ -204,11 +204,13 @@ document.addEventListener('DOMContentLoaded', function() {
 function initMenuHamburger() {
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.querySelector('.nav-menu');
+    const body = document.body;
     
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
+            const isActive = hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
+            body.classList.toggle('menu-open', isActive);
         });
         
         // Fechar o menu ao clicar em um link
@@ -217,6 +219,7 @@ function initMenuHamburger() {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
+                body.classList.remove('menu-open');
             });
         });
         
@@ -225,6 +228,16 @@ function initMenuHamburger() {
             if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
+                body.classList.remove('menu-open');
+            }
+        });
+
+        // Fechar o menu ao redimensionar a janela para tamanho maior
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                body.classList.remove('menu-open');
             }
         });
     }
