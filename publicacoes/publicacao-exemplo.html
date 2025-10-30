@@ -9,62 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    <style>
-        .article-header {
-            text-align: center;
-            padding: 40px 0 20px;
-            border-bottom: 1px solid rgba(125, 211, 252, 0.1);
-            margin-bottom: 40px;
-        }
-
-        .article-header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            line-height: 1.2;
-        }
-
-        .article-meta {
-            color: var(--color-muted);
-            font-size: 1rem;
-        }
-
-        .article-content img {
-            max-width: 100%;
-            height: auto;
-            border-radius: var(--radius-sm);
-            margin: 20px 0;
-            display: block;
-        }
-
-        .article-content p {
-            margin-bottom: 20px;
-            line-height: 1.7;
-            font-size: 1.05rem;
-        }
-
-        .article-content h2 {
-            margin-top: 40px;
-            font-size: 1.8rem;
-            border-bottom: 2px solid rgba(125, 211, 252, 0.2);
-            padding-bottom: 8px;
-        }
-
-        .article-content ul {
-            margin-left: 20px;
-            margin-bottom: 20px;
-            list-style-type: disc;
-        }
-
-        .article-content blockquote {
-            border-left: 4px solid var(--color-accent);
-            padding-left: 20px;
-            margin: 20px 0;
-            font-style: italic;
-            background-color: rgba(125, 211, 252, 0.05);
-            padding: 15px 20px;
-            border-radius: var(--radius-sm);
-        }
-    </style>
 </head>
 <body>
     <header class="header">
@@ -74,10 +18,15 @@
                 <ul class="nav-menu">
                     <li><a href="../index.html" class="nav-link">Home</a></li>
                     <li><a href="../sobre.html" class="nav-link">Sobre Mim</a></li>
-                    <li><a href="../projetos.html" class="nav-link active">Projetos</a></li>
-                    <li><a href="../publicacoes.html" class="nav-link active">Publicações</a></li>
+                    <li><a href="../projetos.html" class="nav-link">Projetos</a></li>
+                    <li><a href="../publicacoes.html" class="nav-link">Publicações</a></li>
                     <li><a href="../contato.html" class="nav-link">Contato</a></li>
                 </ul>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </nav>
         </div>
     </header>
