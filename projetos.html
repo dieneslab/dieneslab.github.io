@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos — Dienes Stein</title>
+    <meta name="description" content="Projetos de automação e qualidade de software desenvolvidos por Dienes Stein.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--color-accent);
+            color: var(--color-bg);
+            padding: 5px 10px;
+            border-radius: var(--radius-sm);
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .project-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--color-accent);
+        }
+
+        .project-meta {
+            font-size: 0.9rem;
+            color: var(--color-muted);
+            margin-bottom: 15px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tech-tag {
+            background: rgba(125, 211, 252, 0.1);
+            color: var(--color-accent);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .project-excerpt {
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .project-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .project-actions .btn {
+            flex: 1;
+            text-align: center;
+        }
+
+        .featured-project {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .featured-project .project-image {
+            height: 300px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        .featured-project .project-content {
+            padding: 0;
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-project {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-project .project-image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">Dienes Stein</div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="sobre.html" class="nav-link">Sobre Mim</a></li>
+                    <li><a href="projetos.html" class="nav-link active">Projetos</a></li>
+                    <li><a href="publicacoes.html" class="nav-link">Publicações</a></li>
+                    <li><a href="contato.html" class="nav-link">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h1>Projetos</h1>
+            <p>Explore meus projetos de automação, frameworks de teste e soluções de qualidade de software. Cada projeto representa um desafio único e uma oportunidade de aplicar as melhores práticas em QA.</p>
+        </section>
+
+        <div class="projects-grid">
+            <!-- Projeto Destaque -->
+            <div class="card project-card featured-project">
+                <div class="project-image">
+                    <img src="https://dieneslab.github.io/images/allure-report-cypress.png" alt="Relatório Allure para Automação Cypress">
+                    <div class="project-badge">Destaque</div>
+                </div>
+                <div class="project-content">
+                    <h3>Automação Cypress com Allure Reports</h3>
+                    <div class="project-meta">
+                        <span>🚀 Projeto Ativo</span>
+                        <span>⏱️ 2025</span>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Cypress</span>
+                        <span class="tech-tag">Allure Reports</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">GitHub Actions</span>
+                    </div>
+                    <p class="project-excerpt">
+                        Framework de automação E2E desenvolvido com Cypress que gera relatórios detalhados e visuais através do Allure. 
+                        Inclui integração com CI/CD, dashboards interativos e métricas de qualidade que facilitam a análise de resultados 
+                        e a identificação de pontos de melhoria.
+                    </p>
+                    <div class="project-actions">
+                        <a href="https://dieneslab.github.io/automacao_cypress_allure" target="_blank" class="btn btn-primary">Ver Allure</a>
+                        <a href="https://github.com/dieneslab/automacao_cypress_allure" target="_blank" class="btn btn-secondary">Código</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projeto 2 -->
+            <div class="card project-card">
+                <div class="project-image">
+                    <img src="https://dieneslab.github.io/images/hospital-api-doc.png" alt="Hospital Management API">
+                    <div class="project-badge">API</div>
+                </div>
+                <div class="project-content">
+                    <h3>Hospital Management API</h3>
+                    <div class="project-meta">
+                        <span>📊 Backend</span>
+                        <span>⏱️ 2025</span>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Express</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Swagger</span>
+                    </div>
+                    <p class="project-excerpt">
+                        API completa para gestão hospitalar com autenticação JWT, agendamento de consultas, 
+                        gestão de pacientes e relatórios. Inclui documentação Swagger completa para facilitar 
+                        testes e integrações.
+                    </p>
+                    <div class="project-actions">
+                        <a href="https://hospital-api.up.railway.app/api-docs" target="_blank" class="btn btn-primary">Ver Swagger</a>
+                        <a href="https://github.com/dieneslab/hospital-api" target="_blank" class="btn btn-secondary">Código</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projeto 3 -->
+            <div class="card project-card">
+                <div class="project-image">
+                    <img src="https://dieneslab.github.io/images/playwright-dashboard.png" alt="Dashboard Playwright">
+                    <div class="project-badge">Automação</div>
+                </div>
+                <div class="project-content">
+                    <h3>Playwright Test Framework</h3>
+                    <div class="project-meta">
+                        <span>🧪 Testes E2E</span>
+                        <span>⏱️ 2025</span>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Playwright</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">CI/CD</span>
+                        <span class="tech-tag">HTML Reports</span>
+                    </div>
+                    <p class="project-excerpt">
+                        Framework de automação construído com Playwright e TypeScript para testes end-to-end 
+                        em aplicações web modernas. Inclui paralelização, cross-browser testing e relatórios 
+                        HTML interativos e Allure Report.
+                    </p>
+                    <div class="project-actions">
+                        <a href="https://dieneslab.github.io/automacao_playwright" class="btn btn-primary">Ver Allure</a>
+                        <a href="https://github.com/dieneslab/automacao_playwright" class="btn btn-secondary">Código</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projeto 4 -->
+            <div class="card project-card">
+                <div class="project-image">
+                    <img src="https://dieneslab.github.io/images/robot-framework.png" alt="Robot Framework Tests">
+                    <div class="project-badge">Automação</div>
+                </div>
+                <div class="project-content">
+                    <h3>Robot Framework para APIs</h3>
+                    <div class="project-meta">
+                        <span>🔧 Testes de API</span>
+                        <span>⏱️ 2025</span>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Robot Framework</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">REST</span>
+                        <span class="tech-tag">BDD</span>
+                    </div>
+                    <p class="project-excerpt">
+                        Suíte de testes para APIs REST utilizando Robot Framework com abordagem BDD. 
+                        Inclui keywords customizadas, relatórios detalhados e integração com sistemas 
+                        de CI/CD.
+                    </p>
+                    <div class="project-actions">
+                        <a href="https://github.com/dieneslab/automacao_robotframework/actions" class="btn btn-primary">Ver Actions</a>
+                        <a href="https://github.com/dieneslab/automacao_robotframework" class="btn btn-secondary">Código</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Dienes Stein — Feito com ❤️ e o poder da Qualidade de Software.</p>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
