@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Arte de "Chimiar" o Pão com cy.prompt(): Como Instruções Precisas Transformam Testes Automatizados — Dienes Stein</title>
+    <meta name="description" content="Minha experiência prática com o comando experimental cy.prompt() do Cypress e a importância crucial de instruções bem escritas na automação de testes.">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="../images/favicon/favicon.ico">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">Dienes Stein</div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="../sobre.html" class="nav-link">Sobre Mim</a></li>
+                    <li><a href="../projetos.html" class="nav-link">Projetos</a></li>
+                    <li><a href="../publicacoes.html" class="nav-link">Publicações</a></li>
+                    <li><a href="../contato.html" class="nav-link">Contato</a></li>
+                </ul>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="card">
+            <header class="article-header">
+                <h1>A Arte de "Chimiar" o Pão com cy.prompt(): Como Instruções Precisas Transformam Testes Automatizados</h1>
+                <p class="article-meta">📅 31 de Outubro de 2025 | ⏱️ 10 min de leitura | 🏷️ Cypress, Automação, QA, Cypress Cloud</p>
+            </header>
+
+            <div class="article-content">
+                <p>
+                    <em>"Pegar o pão... passar a faca... dar uma grande mordida..."</em> - se você já viu o vídeo viral das crianças explicando como chimiar o pão enquanto o pai segue literalmente cada instrução, vai entender perfeitamente minha experiência com o <code>cy.prompt()</code>. Mas vamos começar pelo técnico - prometo que o título fará mais sentido ao final!
+                </p>
+
+                <h2>Configuração Técnica Simples</h2>
+                <p>
+                    Implementei o <code>cy.prompt()</code> seguindo uma abordagem prática e direta. Diferente de configurações complexas, optei pelo minimalismo funcional:
+                </p>
+
+                <h3>1. Package.json - Um Único Comando</h3>
+                <pre><code>{
+  "scripts": {
+    "test": "cypress run --record"
+  }
+}</code></pre>
+
+                <h3>2. GitHub Actions - Integração Contínua</h3>
+                <pre><code>- name: Run Cypress Tests
+  run: npm run test || true
+  env:
+    CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}</code></pre>
+
+                <h3>3. Cypress.config.js - Habilitando o Experimental</h3>
+                <pre><code>module.exports = defineConfig({
+  projectId: "meu-project-id",
+  e2e: {
+    experimentalPromptCommand: true
+  }
+})</code></pre>
+
+                <h3>4. Execução Local (Alternativa sem CI)</h3>
+                <pre><code># Execute diretamente no terminal:
+npx cypress run --record --key "sua_record_key_aqui"
+
+# Ou se preferir via npm:
+npm run cypress --record --key "sua_record_key_aqui"</code></pre>
+
+                <div class="highlight">
+                    <p><strong>💡 Importante:</strong> Você NÃO precisa do GitHub Actions para usar <code>cy.prompt()</code>. A integração contínua é opcional - o essencial é ter o Cypress a partir da versão 15.4.0 e ter o Cypress Cloud.</p>
+                </div>
+
+                <h2>Obrigatoriedade do Cypress Cloud</h2>
+                <p>
+                    <strong>⚠️ Atenção:</strong> Atualmente, durante sua fase experimental, o <code>cy.prompt()</code> <strong>REQUER</strong> obrigatoriamente:
+                </p>
+                <ul>
+                    <li>✅ <strong>Conta no Cypress Cloud</strong> (gratuita)</li>
+                    <li>✅ <strong>projectId</strong> (identificador do seu projeto)</li>
+                    <li>✅ <strong>recordKey</strong> (chave de autenticação)</li>
+                </ul>
+
+                <p><strong>Como obter:</strong></p>
+                <ol style="margin-left: 20px; margin-bottom: 20px;">
+                    <li><strong>Acesse</strong> <a href="https://cloud.cypress.io" target="_blank">Cypress Cloud</a> e crie sua conta</li>
+                    <li><strong>Conecte</strong> seu projeto seguindo o assistente</li>
+                    <li><strong>Anote</strong> o <code>projectId</code> gerado no <code>cypress.config.js</code></li>
+                    <li><strong>Gere</strong> sua <code>recordKey</code> em <strong>Project Settings → Record Keys</strong></li>
+                </ol>
+
+                <div class="highlight">
+                    <p><strong>📝 Nota:</strong> Esta obrigatoriedade pode mudar quando o comando sair da fase experimental, mas por enquanto é essencial para o funcionamento.</p>
+                </div>
+
+                <h2>Meus Testes Práticos com cy.prompt()</h2>
+                <p>Implementei dois casos práticos para validar a funcionalidade:</p>
+
+                <pre><code>describe('Prompt test examples', () => {
+
+  it('test using command cy.prompt', () => {
+    cy.prompt([
+      'visit the page http://example.cypress.io',
+      'and confirm text "Kitchen Sink" is present'
+    ])
+  })
+
+  it('validate if test case 1 at least i have 18 steps using command cy.prompt', () => {
+    cy.prompt([
+      'Visit the page https://automationexercise.com/',
+      'validate if button Test Cases is present',
+      'click on button Test Cases',
+      'validate if url is correct https://automationexercise.com/test_cases', 
+      'click on link Test Case 1: Register User',
+      'validate if step 1. Launch browser is opened below the title',
+      'validate next steps until step 18 is opened below the title',
+    ])
+  })
+})</code></pre>
+
+                <div class="api-image-container">
+                    <img src="../images/cypress-cloud-test-results.png" alt="Resultados dos testes no Cypress Cloud mostrando execução bem-sucedida">
+                    <p class="image-caption">Meus testes executando com sucesso no Cypress Cloud</p>
+                </div>
+
+                <h2>A Arte de Chimiar o Pão: Quando Instruções Vagas Viram Caos</h2>
+
+                <div class="video-container" onclick="window.open('https://www.youtube.com/watch?v=cDA3_5982h8', '_blank')">
+                    <img src="https://img.youtube.com/vi/cDA3_5982h8/maxresdefault.jpg" alt="Thumbnail do vídeo 'A arte de chimiar o pão'" class="video-thumbnail">
+                    <div class="video-overlay">
+                        <div class="play-button">▶</div>
+                    </div>
+                </div>
+
+                <div class="video-caption">
+                    <p><strong>Vídeo: Exact Instructions Challenge - THIS is why my kids hate me. | Josh Darnit</strong></p>
+                    </a>
+                </div>
+
+                <p>
+                    No vídeo que inspirou este artigo, os <strong>filhos</strong> precisam explicar para o pai como "chimiar" o pão (termo do sul do Brasil que significa passar manteiga/geleia, derivado do alemão "schmieren" = untar).
+                </p>
+
+                <p>
+                    O pai segue <strong>literalmente</strong> cada instrução, resultando em situações hilárias:
+                </p>
+                <ul>
+                    <li>🍞 <strong>"Pegar o pão"</strong> → Pai pega o pão ainda <strong>dentro do saco</strong></li>
+                    <li>🔪 <strong>"Passar a faca"</strong> → Pai passa a faca <strong>sem manteiga</strong></li>
+                    <li>🧈 <strong>"Dar uma grande mordida"</strong> → Pai morde a fatia do <strong>pão seco</strong></li>
+                </ul>
+
+                <p><strong>EXATAMENTE como me senti com meus primeiros prompts!</strong></p>
+
+                <h3>Minha Evolução: De "Pegar o Pão" para "Instruções de Chef"</h3>
+
+                <p><strong>❌ Meus Primeiros Prompts (O "Pegar o Pão" dos Testes):</strong></p>
+                <pre><code>// Tão vago quanto "pegar o pão"
+cy.prompt(['click button', 'check if worked'])
+// Resultado: Cypress clicava em QUALQUER botão</code></pre>
+
+                <p><strong>✅ Prompts que Funcionaram (A "Receita do Chef"):</strong></p>
+                <pre><code>// Específico como uma receita de panificação
+cy.prompt([
+  'Locate the "Test Cases" button in the header navigation',
+  'Wait for button to be visible and clickable', 
+  'Click the button and wait 2 seconds for page transition',
+  'Verify current URL contains "/test_cases"',
+  'Scroll to section containing "Test Case 1: Register User"'
+])</code></pre>
+
+                <h2>A Lição que Transformou Meus Testes</h2>
+                <p>
+                    Assim como no vídeo, onde instruções precisas transformam caos em um pão perfeito, descobri que:
+                </p>
+
+                <div class="highlight">
+                    <p style="text-align: center; font-size: 1.2rem; margin: 0;">
+                        <strong>A QUALIDADE DOS SEUS TESTES DEPENDE DIRETAMENTE DA QUALIDADE DAS SUAS INSTRUÇÕES</strong>
+                    </p>
+                </div>
+
+                <h3>Princípios para Prompts Perfeitos:</h3>
+
+                <div class="extension-grid">
+                    <div class="extension-card">
+                        <h3>1. Especificidade é Tudo</h3>
+                        <p><strong>❌ "click login"</strong> → Qual login? Onde?</p>
+                        <p><strong>✅ "click the blue login button in the top-right corner"</strong></p>
+                    </div>
+
+                    <div class="extension-card">
+                        <h3>2. Contexto e Localização</h3>
+                        <p><strong>❌ "fill form"</strong> → Qual formulário? Quais campos?</p>
+                        <p><strong>✅ "in the contact form, fill name, email and message fields"</strong></p>
+                    </div>
+
+                    <div class="extension-card">
+                        <h3>3. Validações Explícitas</h3>
+                        <p><strong>❌ "check success"</strong> → O que significa sucesso?</p>
+                        <p><strong>✅ "verify green success message appears with text 'Thank you!'"</strong></p>
+                    </div>
+
+                    <div class="extension-card">
+                        <h3>4. Timing e Esperas</h3>
+                        <p><strong>❌ "go to page"</strong> → E se carregar lentamente?</p>
+                        <p><strong>✅ "navigate to URL and wait for loading spinner to disappear"</strong></p>
+                    </div>
+                </div>
+
+                <h2>Conclusão: A Arte se Aprende na Prática</h2>
+                <p>
+                    Aprendi com o <code>cy.prompt()</code> que <strong>automação de testes é, em essência, a arte de dar instruções precisas</strong>.
+                </p>
+
+                <p>
+                    Assim como os filhos do vídeo aprenderam que "chimiar o pão" precisa ser:
+                    <em>"Pegar uma fatia de pão do pacote, espalhar manteiga uniformemente com a faca, e levar à boca para dar uma mordida"</em>
+                </p>
+
+                <p>
+                    Eu aprendi que cada comando precisa ser:
+                </p>
+                <ul>
+                    <li>🎯 <strong>Específico</strong> - sem ambiguidades</li>
+                    <li>📍 <strong>Contextualizado</strong> - com localização clara</li>
+                    <li>⏱️ <strong>Temporal</strong> - considerando tempos de espera</li>
+                    <li>✅ <strong>Verificável</strong> - com critérios de sucesso explícitos</li>
+                </ul>
+
+                <div class="highlight">
+                    <p><strong>A grande lição:</strong> Se não sabemos descrever bem o que queremos testar, nunca teremos testes confiáveis. A falha não está na ferramenta, mas na nossa capacidade de comunicação com ela.</p>
+                </div>
+
+                <p style="text-align: center; font-size: 1.3rem; margin-top: 40px;">
+                    <strong>Vamos "chimiar" nossos testes hoje? 🍞✨</strong>
+                </p>
+
+                <div class="linkedin-cta">
+                    <h3>💼 Compartilhe essa experiência!</h3>
+                    <p>Se esta jornada com <code>cy.prompt()</code> fez sentido pra você, que tal levar essa discussão para o LinkedIn?</p>
+                    <p><strong>"Assim como no vídeo do 'chimiar pão', descobri que instruções precisas são a diferença entre testes robustos e falhas constantes. A arte de testar começa na arte de explicar!"</strong></p>
+                    <div class="demo-links">
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://dieneslab.github.io/publicacoes/cypress-prompt-chimiar-pao.html&title=A Arte de 'Chimiar' o Pão com cy.prompt(): Como Instruções Precisas Transformam Testes Automatizados" target="_blank">
+                            🔗 Compartilhar no LinkedIn
+                        </a>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="../publicacoes.html" class="btn btn-secondary">← Voltar para Publicações</a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Dienes Stein — Feito com ❤️ e o poder da Qualidade de Software.</p>
+        </div>
+    </footer>
+    <script src="../js/script.js"></script>
+</body>
+</html>
