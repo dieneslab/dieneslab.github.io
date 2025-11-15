@@ -1339,3 +1339,80 @@ figcaption {
 .article-content tr:nth-child(even) {
     background-color: rgba(125, 211, 252, 0.03);
 }
+
+/* ============================================
+   CORREÇÃO DE RESPONSIVIDADE - MOBILE ONLY
+   ============================================ */
+
+/* Aplica correções apenas em mobile */
+@media (max-width: 768px) {
+    * {
+        max-width: 100% !important;
+    }
+    
+    html, body {
+        overflow-x: hidden !important;
+    }
+    
+    .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 15px !important;
+    }
+    
+    .card {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+    
+    /* Garante que todas as imagens sejam responsivas no mobile */
+    img:not(.tech-icons img):not(.project-image img):not(.hero-image img) {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+    
+    /* Garante que todas as tabelas sejam responsivas no mobile */
+    table {
+        width: 100% !important;
+        max-width: 100% !important;
+        display: block !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+    }
+    
+    /* Garante que pre/code sejam responsivos no mobile */
+    pre {
+        max-width: 100% !important;
+        white-space: pre-wrap !important;
+        word-wrap: break-word !important;
+        overflow-x: auto !important;
+    }
+    
+    .card {
+        padding: 15px !important;
+        margin: 10px 0 !important;
+    }
+    
+    table {
+        font-size: 14px !important;
+    }
+    
+    pre, code {
+        font-size: 12px !important;
+    }
+}
+
+/* Mantém o layout original para desktop */
+@media (min-width: 769px) {
+    .container {
+        max-width: var(--max-width) !important;
+        padding: 0 40px !important;
+    }
+    
+    .card {
+        max-width: 100% !important;
+        padding: 30px !important;
+        margin-bottom: 40px !important;
+    }
+}
