@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /icons/
+Allow: /publicacoes/
+
+Sitemap: https://dienes.com.br/sitemap.xml
