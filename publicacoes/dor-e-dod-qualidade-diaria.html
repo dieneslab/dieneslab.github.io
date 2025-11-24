@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoR e DoD: Dando nome às práticas que garantem a qualidade no nosso dia a dia — Dienes Stein</title>
+    <meta name="description" content="Uma reflexão sobre Definition of Ready (DoR) e Definition of Done (DoD), conceitos essenciais para a qualidade e fluidez no desenvolvimento de software.">
+    <link rel="canonical" href="https://dienes.com.br/publicacoes/dor-e-dod-qualidade-diaria.html" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <script src="../js/analytics.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">Dienes Stein</div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="../sobre.html" class="nav-link">Sobre Mim</a></li>
+                    <li><a href="../projetos.html" class="nav-link">Projetos</a></li>
+                    <li><a href="../publicacoes.html" class="nav-link">Publicações</a></li>
+                    <li><a href="../contato.html" class="nav-link">Contato</a></li>
+                </ul>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="card">
+            <header class="article-header">
+                <h1>DoR e DoD: Dando nome às práticas que garantem a qualidade no nosso dia a dia</h1>
+                <p class="article-meta">📅 24 de Novembro de 2025 | ⏱️ 5 min de leitura | 🏷️ Qualidade, Agile, Scrum, DoR, DoD</p>
+            </header>
+
+            <div class="article-content">
+                <p>Minha última publicação sobre <em>shift everywhere</em> me fez lembrar e querer também falar um pouco dos conceitos DoR e DoD. São conceitos que vejo muito pelas redes quando falamos de qualidade, principalmente nas entregas, sejam elas pequenas ou grandes. Muitas vezes não nos damos conta de que os aplicamos no dia a dia, dentro da nossa equipe, mas é legal dar o nome aos bois para as coisas que nem sempre soubemos que têm nome.</p>
+                
+                <p>Sabe aquela sensação de pegar uma tarefa para fazer e, no meio do caminho, perceber que faltam informações cruciais? Ou aquele clássico "terminei, só falta testar", que na verdade significa que ainda há um longo caminho pela frente? É exatamente para resolver isso que o <strong>Definition of Ready (DoR)</strong> e o <strong>Definition of Done (DoD)</strong> entram em cena.</p>
+
+                <figure>
+                    <img src="../images/dor-dod.png" alt="Uma imagem conceitual mostrando duas checklists, uma rotulada como 'Pronto para Começar?' (DoR ) e outra como 'Realmente Terminado?' (DoD), com ícones de planejamento e qualidade.">
+                    <figcaption>DoR e DoD funcionam como acordos de qualidade para a equipe.</figcaption>
+                </figure>
+
+                <h2 id="dor-combinado-comecar-bem">DoR (Definition of Ready): O nosso combinado para começar bem</h2>
+                <p>Pense no DoR como um filtro de qualidade <em>antes</em> de o trabalho começar. É um acordo que a equipe faz para definir o que uma tarefa precisa ter para ser considerada "pronta para ser desenvolvida". O objetivo é simples: garantir que, quando um desenvolvedor puxa uma tarefa, ele tenha tudo o que precisa para trabalhar com foco e sem interrupções desnecessárias.</p>
+                
+                <p>É como planejar uma viagem: você não pega a estrada sem antes verificar o combustível, o destino no GPS e se as malas estão no carro. No desenvolvimento, a lógica é a mesma.</p>
+                
+                <div class="highlight">
+                    <p><strong>Exemplos de um checklist de DoR:</strong></p>
+                    <ul>
+                        <li>A história de usuário está clara e o valor para o negócio é compreendido?</li>
+                        <li>Os critérios de aceitação estão definidos e são testáveis?</li>
+                        <li>O time já discutiu e estimou o esforço necessário?</li>
+                        <li>As dependências com outras equipes ou sistemas já foram mapeadas?</li>
+                    </ul>
+                </div>
+                
+                <p>Ter um DoR claro evita que a equipe perca tempo com tarefas ambíguas e garante que o planejamento (refinamento) seja levado a sério.</p>
+
+                <h2 id="dod-selo-realmente-pronto">DoD (Definition of Done): O nosso selo de "realmente pronto"</h2>
+                <p>Se o DoR é sobre começar certo, o DoD é sobre terminar certo. Ele é o nosso acordo sobre o que significa "concluído". E não é um "concluído" qualquer, mas um que agrega valor real e atende a um padrão de qualidade definido por toda a equipe.</p>
+                
+                <p>O DoD é um checklist que se aplica a <em>todas</em> as tarefas e garante que nada importante seja esquecido. Ele transforma o "na minha máquina funciona" em "está pronto para o cliente ver".</p>
+                
+                <div class="highlight">
+                    <p><strong>Exemplos de um checklist de DoD:</strong></p>
+                    <ul>
+                        <li>O código foi revisado por pelo menos um outro colega (<em>code review</em>)?</li>
+                        <li>Os testes automatizados foram criados e estão passando?</li>
+                        <li>A funcionalidade foi validada pelo Product Owner (PO)?</li>
+                        <li>A documentação relevante foi atualizada?</li>
+                        <li>A entrega está em conformidade com os critérios de aceitação da tarefa?</li>
+                    </ul>
+                </div>
+
+                <p>O DoD é a nossa garantia de que o que entregamos é um incremento de software funcionando e de qualidade, não apenas um monte de código.</p>
+
+                <h2 id="diferenca-criterios-aceitacao">DoR e DoD vs. Critérios de Aceitação: Qual a diferença?</h2>
+                <p>Aqui surge uma dúvida comum: qual a diferença entre esses conceitos e os <strong>Critérios de Aceitação (AC)</strong>? Os ACs são as regras específicas que definem o sucesso de <em>uma única tarefa</em>. Por exemplo: "O usuário deve conseguir fazer login com email e senha corretos".</p>
+                
+                <p>A distinção é a seguinte:</p>
+                <ul>
+                    <li><strong>DoR e DoD:</strong> São acordos <strong>gerais</strong> da equipe, aplicados a <em>todas</em> as tarefas para garantir a qualidade do processo (DoR) e da entrega (DoD).</li>
+                    <li><strong>Critérios de Aceitação (AC):</strong> São <strong>específicos</strong> para <em>cada</em> tarefa, detalhando o que ela deve fazer.</li>
+                </ul>
+                
+                <blockquote>
+                    <p>Pense assim: o DoR garante que os Critérios de Aceitação estejam claros <em>antes</em> de começar. E o DoD garante que a tarefa, além de cumprir seus próprios Critérios de Aceitação, também atenda a todos os outros padrões de qualidade da equipe.</p>
+                </blockquote>
+
+                <hr style="border: none; border-top: 1px solid rgba(125, 211, 252, 0.1); margin: 40px 0;">
+
+                <p>Espero que essa reflexão ajude a clarear como essas práticas, que talvez você já use intuitivamente, podem ser formalizadas para trazer ainda mais fluidez e qualidade para o seu time.</p>
+                
+                <p>Aconselho muito a ler a publicação da Maiara Feliceti lá no <a href="https://medium.com/@maiarafeliceti/melhorando-a-efici%C3%AAncia-do-refinamento-e-entrega-com-o-definition-of-ready-dor-e-definition-of-5e4c28edd4f3" target="_blank" rel="noopener noreferrer">Medium</a>. Ela usa ótimos exemplos para entender mais sobre DoR e DoD e assim você não perder tempo e aplicá-los.</p>
+            </div>
+
+            <div class="linkedin-cta">
+                <h3>💼 Compartilhe essa reflexão!</h3>
+                <p>Se este post sobre DoR e DoD fez sentido para você, que tal levar a discussão para o LinkedIn?</p>
+                <p><strong>"DoR e DoD são mais que siglas: são acordos de equipe que transformam o 'acho que está pronto' em 'temos certeza da qualidade'. Uma reflexão sobre como formalizar boas práticas no dia a dia."</strong></p>
+                <div class="demo-links">
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://dienes.com.br/publicacoes/dor-e-dod-qualidade-diaria.html&title=DoR e DoD: Dando nome às práticas que garantem a qualidade no nosso dia a dia" target="_blank">
+                        🔗 Compartilhar no LinkedIn
+                    </a>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="../publicacoes.html" class="btn btn-secondary">← Voltar para Publicações</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Dienes Stein — Feito com ❤️ e o poder da Qualidade de Software.</p>
+        </div>
+    </footer>
+    <script src="../js/script.js"></script>
+</body>
+</html>
