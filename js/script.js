@@ -243,5 +243,92 @@ function initMenuHamburger() {
     }
 }
 
+// ===== CARREGAR MAIS PUBLICAÇÕES =====
+function initLoadMorePublications() {
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    const loadMoreContainer = document.getElementById('loadMoreContainer');
+    const publicationCards = document.querySelectorAll('.publication-card');
+    
+    // Se não estiver na página de publicações ou não tiver botão, sai
+    if (!loadMoreBtn || !publicationCards.length) return;
+    
+    let itemsToShow = 6; // Mostra 6 inicialmente
+    const increment = 3; // Carrega mais 3 por vez
+    
+    // Esconde o botão se houver 6 ou menos publicações
+    if (publicationCards.length <= 6) {
+        loadMoreContainer.style.display = 'none';
+        return;
+    }
+    
+    // Atualiza o texto do botão
+    function updateButtonText() {
+        const remaining = publicationCards.length - itemsToShow;
+        if (remaining > 0) {
+            loadMoreBtn.textContent = `Ver + (${remaining} restantes)`;
+        } else {
+            loadMoreBtn.textContent = 'Todas as publicações carregadas';
+            loadMoreBtn.disabled = true;
+            loadMoreBtn.classList.remove('btn-secondary');
+            loadMoreBtn.classList.add('btn-primary');
+        }
+    }
+    
+    // Função para mostrar mais publicações
+    function showMorePublications() {
+        // Mostra estado de loading
+        loadMoreBtn.classList.add('btn-loading');
+        
+        // Simula um pequeno delay para melhor experiência
+        setTimeout(() => {
+            // Calcula quantas mostrar
+            const nextShowCount = Math.min(itemsToShow + increment, publicationCards.length);
+            
+            // Mostra as próximas publicações com animação
+            for (let i = itemsToShow; i < nextShowCount; i++) {
+                if (publicationCards[i]) {
+                    publicationCards[i].style.display = 'block';
+                    publicationCards[i].classList.add('showing');
+                }
+            }
+            
+            // Atualiza contador
+            itemsToShow = nextShowCount;
+            
+            // Atualiza texto do botão
+            updateButtonText();
+            
+            // Remove estado de loading
+            loadMoreBtn.classList.remove('btn-loading');
+            
+            // Rola suavemente para a última publicação adicionada
+            if (publicationCards[itemsToShow - 1]) {
+                publicationCards[itemsToShow - 1].scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest'
+                });
+            }
+        }, 300);
+    }
+    
+    // Evento de clique no botão
+    loadMoreBtn.addEventListener('click', showMorePublications);
+    
+    // Atualiza texto inicial
+    updateButtonText();
+}
+
+// ===== INICIALIZAR TUDO QUANDO O DOM CARREGAR =====
+document.addEventListener('DOMContentLoaded', () => {
+    initializeNavigation();
+    initializeFormHandlers();
+    
+    // Verifica se estamos na página de publicações
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    if (currentPath === 'publicacoes.html') {
+        initLoadMorePublications();
+    }
+});
+
 // Inicializar quando o DOM estiver carregado
 document.addEventListener('DOMContentLoaded', initMenuHamburger);

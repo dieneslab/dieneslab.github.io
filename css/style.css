@@ -1416,3 +1416,59 @@ figcaption {
         margin-bottom: 40px !important;
     }
 }
+
+/* ============================================
+   Load More Button - Publications
+   ============================================ 
+*/
+
+.load-more-container {
+    text-align: center;
+    margin: 40px 0 60px;
+}
+
+/* Oculta as publicações além das 6 primeiras inicialmente */
+.publication-card:nth-child(n+7) {
+    display: none;
+}
+
+/* Estado de loading do botão */
+.btn-loading {
+    position: relative;
+    color: transparent;
+    pointer-events: none;
+}
+
+.btn-loading::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--color-accent);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Animação para aparecer suavemente */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.publication-card.showing {
+    animation: fadeInUp 0.5s ease forwards;
+}
