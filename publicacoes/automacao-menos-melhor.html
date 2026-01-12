@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automação de testes: A beleza do "Menos, porém melhor" — Dienes Stein</title>
+    <meta name="description" content="Uma reflexão sobre simplicidade e objetividade na automação de testes, inspirada no princípio essencialista de 'menos, porém melhor' e sua aplicação prática com frameworks modernos.">
+    <link rel="canonical" href="https://dienes.com.br/publicacoes/automacao-menos-melhor.html" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <script src="../js/analytics.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">Dienes Stein</div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="../sobre.html" class="nav-link">Sobre mim</a></li>
+                    <li><a href="../projetos.html" class="nav-link">Projetos</a></li>
+                    <li><a href="../publicacoes.html" class="nav-link">Publicações</a></li>
+                    <li><a href="../contato.html" class="nav-link">Contato</a></li>
+                </ul>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="card">
+            <header class="article-header">
+                <h1>Automação de testes: A beleza do "Menos, porém melhor"</h1>
+                <p class="article-meta">📅 12 de Janeiro de 2026 | ⏱️ 3 min de leitura | 🏷️ Automação, Qualidade, Testes, Boas Práticas, Cypress</p>
+            </header>
+
+            <div class="article-content">
+                <p>Recentemente devorei (em apenas 5 dias!) o livro <strong>"Essencialismo - A Disciplinada Busca por Menos"</strong>, de Greg McKeown. Uma das premissas que mais ecoou em mim é um lema que eu já carregava: <strong>"menos, porém melhor"</strong>.</p>
+                
+                <p>Isso me fez refletir sobre um tema que sempre quis abordar: a <strong>simplicidade e a objetividade na automação de testes</strong>.</p>
+
+                <figure>
+                    <img src="../images/automacao-simplicidade.png" alt="Ilustração mostrando um código de automação simples e limpo ao lado de um código complexo e confuso, com a frase 'Menos, porém melhor' destacada">
+                    <figcaption>Simplicidade na automação: menos código, mais clareza, melhor qualidade.</figcaption>
+                </figure>
+
+                <h2 id="complexidade-desnecessaria">Quando complicamos o que já é simples</h2>
+                <p>Vivemos uma era de frameworks poderosos, repletos de comandos e abstrações pensados para facilitar o trabalho de qualquer pessoa, independente de senioridade ou área (QA ou não). No entanto, percebo uma tendência: <strong>nós, profissionais, muitas vezes complicamos o que já é simples</strong>.</p>
+                
+                <p>Nos pegamos adicionando camadas e mais camadas: linguagem Gherkin, estruturas excessivamente complexas de Page Objects, ou até mesmo <strong>criando soluções customizadas quando o framework já fornece um comando nativo, simples e eficaz para aquela ação</strong>.</p>
+                
+                <div class="highlight">
+                    <p><strong>Deixa eu ser claro:</strong> não sou contra nenhuma dessas ferramentas ou padrões. Uso vários deles. A questão que o Essencialismo me trouxe é: <strong>até que ponto essa complexidade agrega valor real?</strong></p>
+                </div>
+
+                <h2 id="consequencias-complexidade">As consequências de complicar demais</h2>
+                <p>Quanto mais enfeitamos e complicamos uma automação que deveria ser clara e direta, mais criamos:</p>
+                
+                <ul>
+                    <li><strong>Barreiras</strong> para novos membros da equipe.</li>
+                    <li><strong>Desmotivação</strong> para aprender e manter os testes.</li>
+                    <li><strong>Custo de manutenção</strong> desnecessário.</li>
+                </ul>
+
+                <h2 id="simplicidade-inclusao">Simplicidade como porta de entrada e inclusão</h2>
+                <p>Quando aproveitamos ao máximo os recursos nativos e intuitivos do framework, criamos uma <strong>porta de entrada</strong>. Pessoas com menos familiaridade com automação ou programação conseguem entender, contribuir e até criar testes de forma mais autônoma. Isso não só democratiza a qualidade dentro do time, como cria um ciclo virtuoso: a pessoa se sente capaz com algo simples, ganha confiança e, naturalmente, se abre para aprender mais sobre programação e conceitos mais avançados depois. <strong>A simplicidade inclui e motiva.</strong></p>
+
+                <h2 id="exemplo-pratico-cypress">Um exemplo prático no Cypress</h2>
+                <p>Imagine que você precisa verificar se um elemento está visível após uma ação. Às vezes, a organização do projeto pede um <strong>Page Object</strong> para encapsular esse seletor e a asserção. Outras vezes, especialmente em um teste pequeno ou de protótipo, a solução mais clara e direta pode ser usar o comando nativo do Cypress de forma explícita, diretamente no corpo do teste:</p>
+                
+                <pre><code>// Foco na clareza e na ação direta:
+cy.get('[data-test="welcome-message"]').should('be.visible');</code></pre>
+                
+                <p>O segredo está em escolher com discernimento: a estrutura (Page Object) deve <em>servir</em> à clareza, não se tornar um obstáculo a mais. Priorize sempre a <strong>objetividade</strong>.</p>
+
+                <h2 id="habit-simplicity-connection">O poder do hábito e a conexão com a simplicidade</h2>
+                <p>E aqui faço um link com outro livro fantástico, <strong>"O Poder do Hábito"</strong>, de Charles Duhigg. Hábitos — inclusive o hábito de automatizar e de aprender — florescem quando o ponto de partida é <strong>simples</strong>. Uma automação clara, usando os comandos básicos e diretos do framework de forma eficaz, é mais fácil de entender, manter e, consequentemente, gera <strong>testes mais confiáveis e robustos</strong>.</p>
+
+                <h2 id="pergunta-essencial">A pergunta essencial</h2>
+                <p>A proposta não é ser simplório, mas sim <strong>essencial</strong>. É perguntar: <em>"Qual é a maneira mais direta e clara de validar este comportamento, usando ao máximo o que o framework já me oferece?"</em></p>
+                
+                <p>Menos camadas desnecessárias, mais foco no que é essencial. <strong>Menos, porém melhor.</strong></p>
+
+                <h2 id="leitura-recomendada">Leitura Recomendada</h2>
+                <p>Para se aprofundar nos conceitos que embasam essa reflexão:</p>
+                
+                <ul>
+                    <li>
+                        <strong>"Essencialismo: A Disciplinada Busca por Menos"</strong> - Greg McKeown<br>
+                        <a href="https://a.co/d/64GvRKp" target="_blank" rel="noopener noreferrer" style="font-size: 0.9rem; color: var(--color-muted);">🔗 Comprar na Amazon</a>
+                    </li>
+                    <li>
+                        <strong>"O Poder do Hábito"</strong> - Charles Duhigg<br>
+                        <a href="https://a.co/d/5eh6ZsL" target="_blank" rel="noopener noreferrer" style="font-size: 0.9rem; color: var(--color-muted);">🔗 Comprar na Amazon</a>
+                    </li>
+                    <li>
+                        <strong>Documentação oficial do Cypress</strong><br>
+                        <a href="https://docs.cypress.io" target="_blank" rel="noopener noreferrer" style="font-size: 0.9rem; color: var(--color-muted);">🔗 Acessar documentação</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="linkedin-cta">
+                <h3>💼 Leve essa discussão adiante!</h3>
+                <p>Se este post sobre simplicidade na automação fez sentido para você, que tal compartilhar a reflexão?</p>
+                <p><strong>"Automação de testes não precisa ser complexa para ser eficaz. Uma reflexão sobre como o princípio do 'menos, porém melhor' pode transformar nossa abordagem de qualidade, tornando os testes mais acessíveis, mantíveis e confiáveis."</strong></p>
+                <div class="demo-links">
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://dienes.com.br/publicacoes/automacao-menos-melhor.html&title=Automação de Testes: A Beleza do 'Menos, porém Melhor'" target="_blank" rel="noopener noreferrer">
+                        🔗 Compartilhar no LinkedIn
+                    </a>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="../publicacoes.html" class="btn btn-secondary">← Voltar para publicações</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Dienes Stein — Feito com ❤️ e o poder da Qualidade de Software.</p>
+        </div>
+    </footer>
+    <script src="../js/script.js"></script>
+</body>
+</html>
