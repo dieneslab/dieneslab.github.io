@@ -784,6 +784,12 @@ main > section:first-child {
     list-style-type: disc;
 }
 
+.article-content ol {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    list-style-type: decimal;
+}
+
 .article-content blockquote {
     border-left: 4px solid var(--color-accent);
     padding-left: 20px;

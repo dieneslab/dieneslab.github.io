@@ -17,13 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
  * Highlights the current page link in the navigation menu
  */
 function initializeNavigation() {
-    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    const currentPath = window.location.pathname.replace(/\/+$/, '') || '/';
     const navLinks = document.querySelectorAll('.nav-link');
 
     navLinks.forEach(link => {
         const href = link.getAttribute('href');
         
-        if (href === currentPath || (currentPath === '' && href === 'index.html')) {
+        if (href === currentPath) {
             link.classList.add('active');
         } else {
             link.classList.remove('active');
@@ -324,8 +324,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeFormHandlers();
     
     // Verifica se estamos na página de publicações
-    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-    if (currentPath === 'publicacoes.html') {
+    const currentPath = window.location.pathname.replace(/\/+$/, '') || '/';
+    if (currentPath === '/publicacoes') {
         initLoadMorePublications();
     }
 });

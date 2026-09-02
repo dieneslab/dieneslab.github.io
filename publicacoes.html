@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publicações — Dienes Stein</title>
     <meta name="description" content="Artigos e publicações sobre Qualidade de Software, Automação de Testes e Carreira em QA.">
-    <link rel="canonical" href="https://dienes.com.br/publicacoes.html" />
+    <link rel="canonical" href="https://dienes.com.br/publicacoes" />
     <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
@@ -22,11 +22,11 @@
             <nav class="navbar">
                 <div class="logo">Dienes Stein</div>
                 <ul class="nav-menu">
-                    <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="sobre.html" class="nav-link">Sobre Mim</a></li>
-                    <li><a href="projetos.html" class="nav-link">Projetos</a></li>
-                    <li><a href="publicacoes.html" class="nav-link active">Publicações</a></li>
-                    <li><a href="contato.html" class="nav-link">Contato</a></li>
+                    <li><a href="/" class="nav-link">Home</a></li>
+                    <li><a href="/sobre" class="nav-link">Sobre Mim</a></li>
+                    <li><a href="/projetos" class="nav-link">Projetos</a></li>
+                    <li><a href="/publicacoes" class="nav-link active">Publicações</a></li>
+                    <li><a href="/contato" class="nav-link">Contato</a></li>
                 </ul>
                 <button class="hamburger" id="hamburger">
                     <span></span>
@@ -49,13 +49,22 @@
         <div class="publications-grid">
 
             <div class="card publication-card">
+                <h3>Higiene da suíte de testes: Quando um teste deixa de proteger o que importa</h3>
+                <p class="publication-meta">📅 02 de Setembro de 2026 | ⏱️ 9 min de leitura</p>
+                <p class="publication-excerpt">
+                    Como identificar testes obsoletos, redundantes ou de baixo valor e substituir um teste genérico por cenários que protegem regras de negócio de verdade.
+                </p>
+                <a href="/publicacoes/higiene-suite-testes" class="btn btn-primary">Ler Artigo</a>
+            </div>
+
+            <div class="card publication-card">
                 <h3>Automação de testes: A beleza do "Menos, porém melhor"</h3>
                 <p class="publication-meta">📅 12 de Janeiro de 2026 | ⏱️ 3 min de leitura</p>
                 <p class="publication-excerpt">
                     Uma reflexão sobre simplicidade e objetividade na automação de testes, inspirada no princípio 
                     essencialista de "menos, porém melhor" e sua aplicação prática com frameworks modernos como Cypress.
                 </p>
-                <a href="publicacoes/automacao-menos-melhor.html" class="btn btn-primary">Ler Artigo</a>
+                <a href="/publicacoes/automacao-menos-melhor" class="btn btn-primary">Ler Artigo</a>
             </div>
 
             <div class="card publication-card">
@@ -65,7 +74,7 @@
                     Como a IA generativa está transformando a criação de cenários de teste, trazendo previsibilidade 
                     e cobertura completa para garantir software confiável em 2025, integrando-se ao DoR e DoD.
                 </p>
-                <a href="publicacoes/cenarios-teste-ia-previsibilidade.html" class="btn btn-primary">Ler Artigo</a>
+                <a href="/publicacoes/cenarios-teste-ia-previsibilidade" class="btn btn-primary">Ler Artigo</a>
             </div>
 
             <div class="card publication-card">
@@ -75,7 +84,7 @@
                     Uma reflexão sobre Definition of Ready (DoR) e Definition of Done (DoD), conceitos essenciais 
                     para a qualidade e fluidez no desenvolvimento de software, que muitas vezes já aplicamos sem nomear.
                 </p>
-                <a href="publicacoes/dor-e-dod-qualidade-diaria.html" class="btn btn-primary">Ler Artigo</a>
+                <a href="/publicacoes/dor-e-dod-qualidade-diaria" class="btn btn-primary">Ler Artigo</a>
             </div>
 
             <div class="card publication-card">
@@ -85,7 +94,7 @@
                     Uma análise sobre a evolução do papel do QA, explorando os conceitos de Shift Left, Shift Right 
                     e Shift Everywhere. Descubra como a qualidade se tornou uma cultura contínua que permeia todo o ciclo de vida do software.
                 </p>
-                <a href="publicacoes/shift-everywhere-qualidade-continua.html" class="btn btn-primary">Ler Artigo</a>
+                <a href="/publicacoes/shift-everywhere-qualidade-continua" class="btn btn-primary">Ler Artigo</a>
             </div>
 
             <div class="card publication-card">
@@ -96,7 +105,7 @@
                     bem escritas na automação de testes. Descubra como evitar os "erros de chimiar o pão" e criar testes 
                     verdadeiramente confiáveis através de prompts precisos e específicos.
                 </p>
-                <a href="publicacoes/cypress-prompt-chimiar-pao.html" class="btn btn-primary">Ler Artigo</a>
+                <a href="/publicacoes/cypress-prompt-chimiar-pao" class="btn btn-primary">Ler Artigo</a>
             </div>
 
             <div class="card publication-card">
@@ -107,7 +116,7 @@
                     e relatórios de qualidade. Explore por que esse "contrato" entre desenvolvedores e testadores é 
                     fundamental para métricas confiáveis e cobertura real de testes.
                 </p>
-                <a href="publicacoes/documentacao-apis.html" class="btn btn-primary">Ler Artigo</a>
+                <a href="/publicacoes/documentacao-apis" class="btn btn-primary">Ler Artigo</a>
             </div>
 
             <div class="card publication-card">
@@ -117,7 +126,7 @@
                     Descubra as extensões essenciais do VS Code que todo QA deveria usar. Do GitHub Copilot aos temas 
                     que não machucam os olhos, uma lista curada com humor e praticidade para turbinar sua produtividade.
                 </p>
-                <a href="publicacoes/extensoes-vscode-qa.html" class="btn btn-primary">Ler Artigo</a>
+                <a href="/publicacoes/extensoes-vscode-qa" class="btn btn-primary">Ler Artigo</a>
             </div>
 
         </div>

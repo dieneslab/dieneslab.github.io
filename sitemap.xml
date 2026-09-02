@@ -8,25 +8,25 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://dienes.com.br/publicacoes.html</loc>
+    <loc>https://dienes.com.br/publicacoes</loc>
     <lastmod>2025-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
     <url>
-    <loc>https://dienes.com.br/projetos.html</loc>
+    <loc>https://dienes.com.br/projetos</loc>
     <lastmod>2025-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>  
   <url>
-    <loc>https://dienes.com.br/sobre.html</loc>
+    <loc>https://dienes.com.br/sobre</loc>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://dienes.com.br/contato.html</loc>
+    <loc>https://dienes.com.br/contato</loc>
     <lastmod>2025-11-13</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -34,31 +34,37 @@
   
   <!-- Publicações -->
   <url>
-    <loc>https://dienes.com.br/publicacoes/cypress-prompt-chimiar-pao.html</loc>
+    <loc>https://dienes.com.br/publicacoes/higiene-suite-testes</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dienes.com.br/publicacoes/cypress-prompt-chimiar-pao</loc>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dienes.com.br/publicacoes/documentacao-apis.html</loc>
+    <loc>https://dienes.com.br/publicacoes/documentacao-apis</loc>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dienes.com.br/publicacoes/dor-e-dod-qualidade-diaria.html</loc>
+    <loc>https://dienes.com.br/publicacoes/dor-e-dod-qualidade-diaria</loc>
     <lastmod>2025-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dienes.com.br/publicacoes/extensoes-vscode-qa.html</loc>
+    <loc>https://dienes.com.br/publicacoes/extensoes-vscode-qa</loc>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dienes.com.br/publicacoes/shift-everywhere-qualidade-continua.html</loc>
+    <loc>https://dienes.com.br/publicacoes/shift-everywhere-qualidade-continua</loc>
     <lastmod>2025-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

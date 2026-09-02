@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Higiene da Suíte de Testes: Quando um Teste Deixa de Proteger o Que Importa — Dienes Stein</title>
+    <meta name="description" content="Por que testes automatizados perdem eficácia com o tempo e como aplicar higiene contínua na suíte, substituindo testes genéricos por regras de negócio.">
+    <link rel="canonical" href="https://dienes.com.br/publicacoes/higiene-suite-testes" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <script src="../js/analytics.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">Dienes Stein</div>
+                <ul class="nav-menu">
+                    <li><a href="/" class="nav-link">Home</a></li>
+                    <li><a href="/sobre" class="nav-link">Sobre mim</a></li>
+                    <li><a href="/projetos" class="nav-link">Projetos</a></li>
+                    <li><a href="/publicacoes" class="nav-link active">Publicações</a></li>
+                    <li><a href="/contato" class="nav-link">Contato</a></li>
+                </ul>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="card">
+            <header class="article-header">
+                <h1>Higiene da suíte de testes: Quando um teste deixa de proteger o que importa</h1>
+                <p class="article-meta">📅 02 de Setembro de 2026 | ⏱️ 9 min de leitura | 🏷️ Automação, Qualidade, Testes, Boas Práticas, Cypress, Manutenção de Testes</p>
+            </header>
+
+            <div class="article-content">
+                <p>Há algumas semanas apresentei para um time de QA um tema que me acompanha há tempos, mas que eu nunca tinha nomeado direito: <strong>higiene da suíte de testes</strong>. Foi uma apresentação curta, construída a partir de uma situação comum em projetos de software. Funcionou bem no formato de reunião, mas saí de lá com a sensação de que o assunto merecia mais espaço do que alguns slides permitem. Este artigo é essa continuação.</p>
+
+                <h2 id="paradoxo-pesticida">O Paradoxo do Pesticida: testes que só sabem lutar contra o passado</h2>
+                <p>Eu não li o livro <em>Software Testing Techniques</em>, de Boris Beizer. Conheci o Paradoxo do Pesticida há bastante tempo, quando estudei o syllabus para conquistar a certificação CTFL. Mais recentemente, o artigo <a href="https://bugbug.io/blog/software-testing/pesticide-paradox/" target="_blank" rel="noopener noreferrer">The Pesticide Paradox</a> me ajudou a refrescar esse princípio e a retomar uma reflexão que fazia muito sentido para o tema desta publicação.</p>
+
+                <p>A ideia é simples: se repetimos os mesmos testes indefinidamente, eles tendem a parar de encontrar bugs novos. É uma analogia com a agricultura: pragas desenvolvem resistência ao mesmo inseticida usado repetidamente, e o produto que antes funcionava vai perdendo efeito.</p>
+                <p>Com testes automatizados acontece algo parecido. O sistema evolui, novas regras de negócio nascem, integrações mudam, mas a suíte continua testando exatamente as mesmas coisas. O teste não está necessariamente errado; ele pode estar protegendo um sistema que já não existe daquela forma.</p>
+
+                <blockquote>
+                    <p>Um pipeline verde não significa que está tudo certo. Significa que os testes escritos não encontraram problema naquilo que sabem procurar.</p>
+                </blockquote>
+
+                <h2 id="o-que-e-higiene">O que é, na prática, higiene da suíte de testes</h2>
+                <p>Não confunda com sanitização de dados de entrada. Aqui, o assunto é a saúde da própria suíte de automação, não os dados que ela consome.</p>
+                <p>Higienizar uma suíte é revisar criticamente cada teste e perguntar se ele ainda merece o lugar que ocupa. Na minha experiência, os candidatos a poda geralmente caem em três categorias:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align: left;">Tipo de teste problemático</th>
+                            <th style="text-align: left;">Sintoma</th>
+                            <th style="text-align: left;">O que fazer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Obsoleto</strong></td>
+                            <td>Valida uma funcionalidade que já não existe ou mudou de comportamento.</td>
+                            <td>Remover: manter é custo sem benefício.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Redundante</strong></td>
+                            <td>Cobre exatamente o mesmo comportamento que outro teste já garante.</td>
+                            <td>Consolidar, idealmente com parametrização.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>De baixo valor</strong></td>
+                            <td>É genérico demais; passa ou falha sem dizer nada sobre a regra de negócio.</td>
+                            <td>Substituir por testes que validem o comportamento relevante.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>O ganho não é só estético. Uma suíte mais enxuta roda mais rápido, custa menos para manter e devolve confiança: quando um teste falha, você sabe que algo relevante quebrou, não que mais um teste frágil resolveu reclamar.</p>
+
+                <h2 id="exemplo-generico">Um exemplo genérico: de “o pedido foi criado?” para “o frete foi calculado certo?”</h2>
+                <p>Para explicar a ideia sem expor processos, dados ou regras de uma empresa, imagine um fluxo comum de checkout em um e-commerce. Existe um teste antigo que confirma apenas se um pedido foi criado depois da finalização da compra:</p>
+
+                <pre><code>it("Cria o pedido ao finalizar a compra", () =&gt; {
+  finalizarCompra();
+
+  cy.request("GET", `/api/orders/${orderId}`).then((response) =&gt; {
+    expect(response.status).to.eq(200);
+    expect(response.body.id).to.exist;
+  });
+});</code></pre>
+
+                <p>É um teste de sanidade honesto, mas raso: ele confirma que algum pedido existe. Não verifica se a regra de frete foi aplicada corretamente, que é justamente o tipo de comportamento que pode gerar prejuízo ou reclamação.</p>
+                <p>Uma revisão com produto, desenvolvimento e suporte pode revelar dúvidas recorrentes: frete grátis acima de determinado valor, cobrança normal abaixo do limite, endereço não atendido e pedido com cupom. Em vez de manter um teste genérico isolado, podemos substituí-lo por cenários que expressem essas regras:</p>
+
+                <pre><code>[
+  { descricao: "frete grátis acima do limite", subtotal: 250, freteEsperado: 0 },
+  { descricao: "cobra frete abaixo do limite", subtotal: 120, freteEsperado: 18.90 },
+  { descricao: "endereço não atendido", subtotal: 250, freteEsperado: null },
+  { descricao: "cupom não altera a regra de frete", subtotal: 250, freteEsperado: 0 }
+].forEach(({ descricao, subtotal, freteEsperado }) =&gt; {
+  it(descricao, () =&gt; {
+    prepararCarrinho({ subtotal });
+    finalizarCompra();
+    validarFrete(freteEsperado);
+  });
+});</code></pre>
+
+                <p>Os cenários continuam garantindo que o pedido foi criado, mas essa verificação agora faz parte de uma validação mais valiosa. A suíte não perdeu cobertura ao remover o teste genérico: ela absorveu essa cobertura enquanto passou a proteger regras que realmente importam.</p>
+
+                <blockquote>
+                    <p>Se tudo que um teste valida já acontece como pré-condição de outro teste mais robusto, ele provavelmente virou peso morto.</p>
+                </blockquote>
+
+                <h2 id="autopreparo">Um efeito colateral bom: testes que se autopreparam</h2>
+                <p>Ao reescrever cenários assim, aparece outro ganho importante: o teste deixa de depender de um carrinho ou pedido deixado em um estado específico por uma execução anterior.</p>
+
+                <pre><code>const prepararCarrinho = ({ subtotal }) =&gt; {
+  return consultarCarrinho().then((carrinho) =&gt; {
+    if (carrinho.itens.length &gt; 0) {
+      return limparCarrinho().then(() =&gt; adicionarItens(subtotal));
+    }
+
+    return adicionarItens(subtotal);
+  });
+};</code></pre>
+
+                <p>Na prática, a massa de teste pode permanecer estática. O cenário verifica o estado atual e corrige o que for necessário antes de começar. Se a limpeza falhar, o teste falha naquele passo, com uma causa clara, em vez de apresentar uma falha enganosa na regra de frete.</p>
+                <p>Essa ideia conversa com o princípio de isolamento descrito por Martin Fowler em <a href="https://martinfowler.com/articles/nonDeterminism.html" target="_blank" rel="noopener noreferrer"><em>Eradicating Non-Determinism in Tests</em></a>: um teste confiável reconstrói seu estado inicial ou garante sua própria limpeza. O que ele não pode fazer é assumir que o ambiente está do jeito que espera.</p>
+
+                <h2 id="framework">Um framework simples para praticar no dia a dia</h2>
+                <ol>
+                    <li><strong>Revise e questione.</strong> O teste ainda é relevante? A funcionalidade continua existindo? Outro teste já cobre o mesmo comportamento como pré-condição?</li>
+                    <li><strong>Refatore e consolide.</strong> Parametrize cenários semelhantes e centralize a lógica repetida em funções reutilizáveis.</li>
+                    <li><strong>Torne os testes independentes.</strong> Prepare e valide o estado dos dados antes do cenário, separando falha de preparação de falha de regra de negócio.</li>
+                </ol>
+
+                <p>Testes executados com frequência ainda podem sofrer com dados que se corrompem entre execuções. Independência não é luxo: é o que permite rodar a suíte sem intervenção manual e confiar no significado de cada falha.</p>
+
+                <h2 id="conclusao">Conclusão: higiene é cultura, não checklist</h2>
+                <p>Nenhum sistema grande terá 100% de cobertura automatizada, e tudo bem. O objetivo nunca foi automatizar tudo, mas proteger com automação aquilo que realmente importa para o negócio.</p>
+                <p>Higiene de suíte não é uma tarefa de faxina feita uma vez e esquecida. É uma conversa contínua com as pessoas que conhecem o produto, uma revisão frequente das regras e uma disposição para aposentar testes que já não entregam valor. A qualidade da suíte precisa evoluir junto com a qualidade do sistema que ela protege.</p>
+
+                <h2 id="leitura-recomendada">Leitura Recomendada</h2>
+                <ul>
+                    <li><strong>The Pesticide Paradox</strong> — BugBug<br><a href="https://bugbug.io/blog/software-testing/pesticide-paradox/" target="_blank" rel="noopener noreferrer">🔗 Ler artigo</a></li>
+                    <li><strong>Eradicating Non-Determinism in Tests</strong> — Martin Fowler<br><a href="https://martinfowler.com/articles/nonDeterminism.html" target="_blank" rel="noopener noreferrer">🔗 Ler artigo</a></li>
+                    <li><strong>Flaky Tests at Google and How We Mitigate Them</strong> — Google Testing Blog<br><a href="https://testing.googleblog.com/2016/05/flaky-tests-at-google-and-how-we.html" target="_blank" rel="noopener noreferrer">🔗 Ler artigo</a></li>
+                    <li><strong>Catálogo de Test Smells</strong> — testsmells.org<br><a href="https://testsmells.org/" target="_blank" rel="noopener noreferrer">🔗 Acessar catálogo</a></li>
+                </ul>
+            </div>
+
+            <div class="linkedin-cta">
+                <h3>💼 Leve essa discussão adiante!</h3>
+                <p>Se este artigo sobre higiene de testes fez sentido para você, que tal compartilhar a reflexão?</p>
+                <p><strong>"Testes automatizados não envelhecem bem sozinhos. Uma reflexão sobre o Paradoxo do Pesticida e como um caso genérico pode dar lugar a testes de regra de negócio, manutenção e independência."</strong></p>
+                <div class="demo-links">
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://dienes.com.br/publicacoes/higiene-suite-testes&title=Higiene da Suíte de Testes: Quando um Teste Deixa de Proteger o Que Importa" target="_blank" rel="noopener noreferrer">
+                        🔗 Compartilhar no LinkedIn
+                    </a>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="/publicacoes" class="btn btn-secondary">← Voltar para publicações</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Dienes Stein — Feito com ❤️ e o poder da Qualidade de Software.</p>
+        </div>
+    </footer>
+    <script src="../js/script.js"></script>
+</body>
+</html>
